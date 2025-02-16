@@ -8,7 +8,9 @@ const loader = document.querySelector('.loader');
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const query = event.target.elements.searchQuery.value.trim();
+    const queryInput = event.target.elements.searchQuery;
+    const query = queryInput.value.trim();
+    
     
     if (!query) {
         iziToast.error({ title: 'Error', message: 'Please enter a search term!' });
@@ -30,4 +32,6 @@ form.addEventListener('submit', async (event) => {
     }
     
     loader.style.display = 'none';
+    queryInput.value = '';
+   
 });
